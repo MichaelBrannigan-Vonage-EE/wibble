@@ -10,6 +10,7 @@ pipeline {
     stage('ls') {
       steps {
         sh 'ls'
+        sh 'cat wibble'
       }
     }
     stage('sleep') {
