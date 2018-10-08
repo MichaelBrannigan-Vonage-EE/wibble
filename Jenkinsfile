@@ -4,6 +4,7 @@ pipeline {
     stage('Wibble') {
       steps {
         echo 'Wibble'
+        sh 'echo wibble > wibble'
       }
     }
     stage('ls') {
