@@ -1,0 +1,20 @@
+name: scan_and_merge
+
+on:
+  pull_request:
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    steps:
+      - name: run scan
+        run: echo "Scan ok"
+  merge_pr:
+    needs: scan
+    runs-on: ubuntu-latest
+    steps:
+      - name: merge PR
+        run: gh pr merge --rebase "$PR_URL"
+        env:
+          PR_URL: ${{github.event.pull_request.html_url}}
+          GITHUB_TOKEN: ${{secrets.MY_GITHUB_TOKEN}}
