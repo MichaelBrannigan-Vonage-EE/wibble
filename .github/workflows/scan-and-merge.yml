@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: run scan
-        run: echo "Scan ok"
+        run: echo "Scan NOT ok"; exit 1
   merge_pr:
     needs: scan
     runs-on: ubuntu-latest
