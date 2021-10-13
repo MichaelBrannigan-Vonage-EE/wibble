@@ -12,6 +12,7 @@ jobs:
       - name: run scan
         run: echo "Scan ok"
   merge_pr:
+    needs: scan
     runs-on: ubuntu-latest
     steps:
       - name: merge PR
