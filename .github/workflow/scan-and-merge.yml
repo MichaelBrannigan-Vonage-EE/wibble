@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: run scan
-        run: echo "Scan ok" && exit 0
+        run: echo "Scan ok"
   merge_pr:
     runs-on: ubuntu-latest
     steps:
