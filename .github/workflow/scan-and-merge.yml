@@ -5,9 +5,10 @@ permissions:
   contents: write
 jobs:
   scan:
-    echo "Scan ok"
-    exit 0
+    runs-on: ubuntu-latest
+    run: echo "Scan ok" && exit 0
   merge_pr:
+    runs-on: ubuntu-latest
     run: gh pr merge --rebase "$PR_URL"
     env:
       PR_URL: ${{github.event.pull_request.html_url}}
