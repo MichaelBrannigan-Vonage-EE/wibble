@@ -1,8 +1,10 @@
 name: scan_and_merge
-on: pull_request_target
-permissions:
-  pull-requests: write
-  contents: write
+
+on:
+  pull_request:
+    branches:
+      -main
+
 jobs:
   scan:
     runs-on: ubuntu-latest
