@@ -1,4 +1,4 @@
-name: scan_and_merge
+name: Scan and Merge
 
 on:
   pull_request:
