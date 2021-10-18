@@ -2,8 +2,6 @@ name: scan_and_merge
 
 on:
   pull_request:
-    paths:
-      - 'README.md'
 
 jobs:
   scan:
