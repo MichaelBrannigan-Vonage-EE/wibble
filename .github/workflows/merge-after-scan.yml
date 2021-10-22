@@ -11,5 +11,5 @@ jobs:
       - name: merge PR
         run: gh pr merge "$PR_URL" --rebase 
         env:
-          PR_URL: ${{github.event.pull_request.html_url}}
+          PR_URL: ${{jobs.run-scan.outputs.pr_url}}
           GITHUB_TOKEN: ${{secrets.MY_GITHUB_TOKEN}}
