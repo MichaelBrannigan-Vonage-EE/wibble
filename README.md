@@ -3,4 +3,4 @@
 # paths
 #   - README.md
 
-# PR 6.6
+# PR 6.7
