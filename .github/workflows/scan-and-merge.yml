@@ -8,5 +8,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: run scan
-        run: echo "Scan ok"
-             echo "::set-output name=pr-url::${PR_URL}"
+        run: echo "Scan ok for $PR_URL"
+             echo "::set-output name=pr-url::$PR_URL"
