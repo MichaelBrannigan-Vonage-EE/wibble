@@ -1,5 +1,8 @@
 on:
-  pull_request:
+  workflow_run:
+    workflows: ["Scan and Merge"]
+    types:
+      - completed
 
 jobs:
   merge_pr:
