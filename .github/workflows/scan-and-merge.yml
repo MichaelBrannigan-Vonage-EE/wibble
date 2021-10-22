@@ -1,5 +1,9 @@
 name: Scan and Merge
 
+outputs:
+  pr_url:
+    value: ${{ env.PR_URL }}
+
 on:
   pull_request:
 
@@ -9,6 +13,4 @@ jobs:
     steps:
       - name: run scan
         run: echo "Scan ok"
-        outputs:
-          pr_url:
-            value: ${{ env.PR_URL }}
+        
