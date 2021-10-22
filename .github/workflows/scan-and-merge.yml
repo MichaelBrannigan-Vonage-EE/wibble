@@ -1,15 +1,14 @@
 name: Scan and Merge
 
-outputs:
-  pr_url:
-    value: ${{ env.PR_URL }}
-
 on:
   pull_request:
 
 jobs:
   scan:
     runs-on: ubuntu-latest
+    outputs:
+      pr_url:
+        value: ${{ env.PR_URL }}
     steps:
       - name: run scan
         run: echo "Scan ok"
