@@ -9,6 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: merge PR
+        if: ${{ github.event.workflow_run.conclusion == 'success' }}
         run: gh pr merge "$PR_URL" --rebase 
         env:
           PR_URL: ${{jobs.run-scan.outputs.pr_url}}
