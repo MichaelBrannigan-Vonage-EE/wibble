@@ -1,0 +1,12 @@
+name: wibble
+
+jobs:
+  wibble:
+    runs-on: ubuntu-latest
+
+    steps:
+      - throw:
+        run: echo "::set-output name=message::This is a message"
+        
+      - catch:
+        run: echo "${{ steps.throw.message }}"
