@@ -13,5 +13,6 @@ jobs:
         run: echo "::set-output name=message::This is a message"
         
       - name: catch
-        run: echo ${{ steps.throw.outputs.message }}
+        run: |
+             echo ${{ steps.throw.outputs.message }}
              printenv
