@@ -8,8 +8,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - throw:
+      - name: throw
         run: echo "::set-output name=message::This is a message"
         
-      - catch:
+      - name: catch
         run: echo "${{ steps.throw.message }}"
