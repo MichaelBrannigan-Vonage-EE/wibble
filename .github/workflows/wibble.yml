@@ -14,3 +14,4 @@ jobs:
         
       - name: catch
         run: echo ${{ steps.throw.outputs.message }}
+             printenv
