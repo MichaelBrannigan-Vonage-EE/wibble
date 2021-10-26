@@ -1,7 +1,10 @@
 name: wibble
 
+on:
+  push:
+
 jobs:
-  wibble:
+  message:
     runs-on: ubuntu-latest
 
     steps:
