@@ -9,6 +9,7 @@ jobs:
 
     steps:
       - name: throw
+        id: throw
         run: echo "::set-output name=message::This is a message"
         
       - name: catch
