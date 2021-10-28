@@ -33,3 +33,12 @@ jobs:
     steps:
       - name: send_message
         run: echo "Message SUCCESS"
+
+  no_send:
+    runs-on: ubuntu-latest
+    needs: message
+    if: ${{ needs.scan.result == 'failure' }}
+    
+    steps:
+      - name: send_message
+        run: echo "Message FAILURE"
