@@ -12,6 +12,7 @@ jobs:
     steps:
       - name: throw
         id: throw
+        continue-on-error: true
         run: echo "::set-output name=message::This is a message"; exit 1
         
       - name: catch_ok
@@ -22,7 +23,7 @@ jobs:
       - name: catch_fail
         if: ${{ steps.throw.outcome == 'failure' }}
         run: |
-             echo "FAIL"
+             echo "FAIL"; exit 1
 
       - name: status
         run: echo "status $${{ job.status }}"
@@ -33,5 +34,4 @@ jobs:
     
     steps:
       - name: send_message
-        if: ${{ needs.message.result == 'success' }}
         run: echo "Message SUCCESS"
