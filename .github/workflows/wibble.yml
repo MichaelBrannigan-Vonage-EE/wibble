@@ -26,7 +26,7 @@ jobs:
              echo "FAIL"
 
       - name: status
-        run: echo "status $${ job.status }}"
+        run: echo "status $${{ job.status }}"
 
   send:
     runs-on: ubuntu-latest
