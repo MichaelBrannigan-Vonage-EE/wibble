@@ -24,3 +24,11 @@ jobs:
         if: ${{ steps.throw.outcome == 'failure' }}
         run: |
              echo "FAIL"
+             
+  send:
+    needs: message
+    if: ${{ needs.scan.result == 'success' }}
+    
+    steps:
+      - name: send_message
+        run: echo "Message SUCCESS"
