@@ -16,7 +16,7 @@ jobs:
         run: echo "::set-output name=message::This is a message"; exit 1
         
       - name: catch_ok
-        if: ${{ steps.throw.conclusion == 'success' }}
+        if: ${{ steps.throw.outcome == 'success' }}
         run: |
              echo ${{ steps.throw.outputs.message }}
  
@@ -27,6 +27,10 @@ jobs:
 
       - name: status
         run: echo "status $${{ job.status }}"
+        
+      - name: trap_throw_status
+        if: ${{ steps.throw.outcome == 'failure' }}
+        run: exit 1
 
   send:
     runs-on: ubuntu-latest
