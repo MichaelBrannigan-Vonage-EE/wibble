@@ -14,7 +14,12 @@ jobs:
         id: throw
         run: echo "::set-output name=message::This is a message"
         
-      - name: catch
+      - name: catch_ok
+        if: ${{ steps.throw.conclusion == "success" }}
         run: |
              echo ${{ steps.throw.outputs.message }}
-             printenv
+ 
+      - name: catch_fail
+        if: ${{ steps.throw.conclusion == "failure" }}
+        run: |
+             echo "FAIL"
