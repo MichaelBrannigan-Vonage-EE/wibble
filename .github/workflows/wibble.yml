@@ -23,7 +23,7 @@ jobs:
       - name: catch_fail
         if: ${{ steps.throw.outcome == 'failure' }}
         run: |
-             echo "FAIL"; exit 1
+             echo "FAIL"
 
       - name: status
         run: echo "status $${{ job.status }}"
