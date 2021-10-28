@@ -12,16 +12,15 @@ jobs:
     steps:
       - name: throw
         id: throw
-        continue-on-error: true
         run: echo "::set-output name=message::This is a message"; exit 1
         
       - name: catch_ok
-        if: ${{ steps.throw.outcome == 'success' }}
+        if: always() && ${{ steps.throw.outcome == 'success' }}
         run: |
              echo ${{ steps.throw.outputs.message }}
  
       - name: catch_fail
-        if: ${{ steps.throw.outcome == 'failure' }}
+        if: always() && ${{ steps.throw.outcome == 'failure' }}
         run: |
              echo "FAIL"
 
