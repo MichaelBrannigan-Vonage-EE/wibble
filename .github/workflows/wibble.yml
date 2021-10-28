@@ -20,6 +20,6 @@ jobs:
              echo ${{ steps.throw.outputs.message }}
  
       - name: catch_fail
-        if: ${{ steps.throw.conclusion == 'failure' }}
+        if: ${{ steps.throw.outcome == 'failure' }}
         run: |
              echo "FAIL"
