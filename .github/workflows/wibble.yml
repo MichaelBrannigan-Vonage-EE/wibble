@@ -35,12 +35,3 @@ jobs:
       - name: send_message
         if: ${{ needs.message.result == 'success' }}
         run: echo "Message SUCCESS"
-
-  no_send:
-    runs-on: ubuntu-latest
-    needs: message
-    
-    steps:
-      - name: send_message
-        if: ${{ needs.message.result == 'failure' }}
-        run: echo "Message FAILURE"
