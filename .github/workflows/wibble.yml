@@ -15,12 +15,12 @@ jobs:
         run: echo "::set-output name=message::This is a message"; exit 1
         
       - name: catch_ok
-        if: succeeded()
+        if: success()
         run: |
              echo ${{ steps.throw.outputs.message }}
  
       - name: catch_fail
-        if: failed()
+        if: failure()
         run: |
              echo "FAIL"
 
