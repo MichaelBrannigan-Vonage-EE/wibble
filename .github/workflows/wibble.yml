@@ -12,7 +12,7 @@ jobs:
     steps:
       - name: throw
         id: throw
-        run: echo "::set-output name=message::This is a message"
+        run: echo "::set-output name=message::This is a message"; exit 1
         
       - name: catch_ok
         if: ${{ steps.throw.conclusion == 'success' }}
