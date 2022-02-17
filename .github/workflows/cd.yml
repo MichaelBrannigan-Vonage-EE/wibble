@@ -1,0 +1,24 @@
+name: CD
+
+on:
+  workflow_dispatch:
+
+jobs:
+  cd:
+    name: CD
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Get commit from tag
+        id: get_commit
+        run: echo "::set-output name=commit::$(git rev-parse ${GITHUB_REF_NAME})"
+
+      - name: Download CI artifact
+        uses: dawidd6/action-download-artifact@b9571484721e8187f1fd08147b497129f8972c74
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          workflow: ci.yml
+          workflow_conclusion: success
+          name: ci-${{ github.ref_name }}
+          commit: ${{ steps.get_commit.outputs.commit }}
