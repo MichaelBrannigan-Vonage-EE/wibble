@@ -27,5 +27,5 @@ jobs:
       - name: Save artifact
         uses: actions/upload-artifact@v2
         with:
-          name: ci-${{ steps.set_version.outputs.version }}
-          path: ci-${{ steps.set_version.outputs.version }}
+          name: ci-${{ steps.get_version.outputs.version }}
+          path: ci-${{ steps.get_version.outputs.version }}
