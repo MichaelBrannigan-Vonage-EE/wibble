@@ -21,7 +21,7 @@ jobs:
 
       - name: Create artifact
         env:
-          VERSION: ${{ github.event.inputs.environment }}
+          VERSION: ${{ steps.get_version.outputs.version }}
         run: touch ci-${VERSION}
 
       - name: Save artifact
