@@ -3,8 +3,8 @@ name: CI
 on: [push, workflow_dispatch]
 
 jobs:
-  build_lambda:
-    name: Build Lambda
+  ci:
+    name: CI
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
