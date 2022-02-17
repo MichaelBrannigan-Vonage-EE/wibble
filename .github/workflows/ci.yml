@@ -1,0 +1,31 @@
+name: CI
+
+on: [push, workflow_dispatch]
+
+jobs:
+  build_lambda:
+    name: Build Lambda
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Get Version
+        id: get_version
+        run: echo "::set-output name=version::$(cat .version)"
+
+      - name: Apply Version Tag ${{ steps.get_version.outputs.version }}
+        uses: tvdias/github-tagger@v0.0.1
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          tag: ${{ steps.get_version.outputs.version }}
+
+      - name: Create artifact
+        env:
+          VERSION: ${{ github.event.inputs.environment }}
+        run: touch ci-${VERSION}
+
+      - name: Save artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: ci-${{ steps.set_version.outputs.version }}
+          path: ci-${{ steps.set_version.outputs.version }}
