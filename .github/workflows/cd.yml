@@ -22,3 +22,14 @@ jobs:
           workflow_conclusion: success
           name: ci-${{ github.ref_name }}
           commit: ${{ steps.get_commit.outputs.commit }}
+
+      - name: Create artifact
+        env:
+          VERSION: ${{ github.ref_name }}
+        run: echo $VERSION > cd-${VERSION}
+
+      - name: Save artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: cd-${{ github.ref_name }}
+          path: cd-${{ github.ref_name }}
