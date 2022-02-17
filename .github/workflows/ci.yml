@@ -22,7 +22,7 @@ jobs:
       - name: Create artifact
         env:
           VERSION: ${{ steps.get_version.outputs.version }}
-        run: echo ${VERSION > ci-${VERSION}
+        run: echo ${VERSION} > ci-${VERSION}
 
       - name: Save artifact
         uses: actions/upload-artifact@v2
