@@ -12,12 +12,16 @@ jobs:
       - name: Get Version
         id: get_version
         run: echo "::set-output name=version::$(cat .version)"
+        
+      - name: Show workflow
+        run: |
+          echo GITHUB_WORKFLOW $GITHUB_WORKFLOW
 
-      - name: Apply Version Tag ${{ steps.get_version.outputs.version }}
-        uses: tvdias/github-tagger@v0.0.1
-        with:
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
-          tag: ${{ steps.get_version.outputs.version }}
+      #- name: Apply Version Tag ${{ steps.get_version.outputs.version }}
+      #  uses: tvdias/github-tagger@v0.0.1
+      #  with:
+      #    repo-token: ${{ secrets.GITHUB_TOKEN }}
+      #    tag: ${{ steps.get_version.outputs.version }}
 
       - name: Create artifact
         env:
