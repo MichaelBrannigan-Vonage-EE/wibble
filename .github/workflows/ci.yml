@@ -13,8 +13,10 @@ jobs:
         id: get_version
         run: |
           echo "::set-output name=version::$(cat .version)"
-          branch=${{ github.ref_name }}
+          export branch=${{ github.ref_name }}
           echo ${branch//\\/_}
+          chmod +x wibble2
+          ./wibble2
         
       - name: Show workflow
         run: |
