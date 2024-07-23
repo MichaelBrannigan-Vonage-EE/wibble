@@ -11,7 +11,9 @@ jobs:
 
       - name: Get Version
         id: get_version
-        run: echo "::set-output name=version::$(cat .version)"
+        run: |
+          echo "::set-output name=version::$(cat .version)"
+          echo ${{ github.ref_name }}
         
       - name: Show workflow
         run: |
