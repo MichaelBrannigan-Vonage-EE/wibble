@@ -1,1 +1,1 @@
-wibble2
+echo "branch ${branch//\/_}
