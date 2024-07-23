@@ -13,7 +13,7 @@ jobs:
         id: get_version
         run: |
           echo "::set-output name=version::$(cat .version)"
-          branch = ${{ github.ref_name }}
+          branch=${{ github.ref_name }}
           echo ${branch//\/_}
         
       - name: Show workflow
