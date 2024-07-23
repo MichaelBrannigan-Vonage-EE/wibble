@@ -13,7 +13,7 @@ jobs:
         id: get_version
         run: |
           echo "::set-output name=version::$(cat .version)"
-          echo ${{ github.ref_name }}
+          echo ${{ github.ref_name }//\/_}
         
       - name: Show workflow
         run: |
