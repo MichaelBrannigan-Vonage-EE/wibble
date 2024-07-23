@@ -1,1 +1,1 @@
-echo "branch ${branch//\/_}
+echo "branch ${branch//\/_}"
